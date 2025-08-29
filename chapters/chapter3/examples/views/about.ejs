@@ -1,0 +1,153 @@
+<%- include('layout', { body: `
+<div class="container mt-4">
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-12">
+            <h1><i class="fas fa-info-circle me-2"></i>About This Demo</h1>
+            <p class="lead">Learn about the template generation techniques demonstrated in this application</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2>Template Generation Demo</h2>
+                    <p>
+                        This application demonstrates various template generation techniques and best practices 
+                        used in modern web development. It showcases how templates can be used to create 
+                        dynamic, responsive, and maintainable web applications.
+                    </p>
+                    
+                    <h3>Key Features Demonstrated</h3>
+                    <ul>
+                        <li><strong>Template Inheritance:</strong> Using a base layout template that other pages extend</li>
+                        <li><strong>Dynamic Content:</strong> Rendering data from JavaScript objects into HTML</li>
+                        <li><strong>Conditional Logic:</strong> Showing/hiding content based on data conditions</li>
+                        <li><strong>Loops and Iteration:</strong> Displaying lists of users and products</li>
+                        <li><strong>Form Handling:</strong> Search and filtering functionality</li>
+                        <li><strong>Responsive Design:</strong> Mobile-first approach with Bootstrap</li>
+                        <li><strong>Component Architecture:</strong> Reusable template components</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3>Technologies Used</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Backend</h5>
+                            <ul>
+                                <li><strong>Node.js:</strong> JavaScript runtime</li>
+                                <li><strong>Express.js:</strong> Web framework</li>
+                                <li><strong>EJS:</strong> Template engine</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Frontend</h5>
+                            <ul>
+                                <li><strong>Bootstrap 5:</strong> CSS framework</li>
+                                <li><strong>Font Awesome:</strong> Icons</li>
+                                <li><strong>JavaScript ES6+:</strong> Modern JavaScript</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Template Engine Concepts</h3>
+                    
+                    <h5>1. Template Inheritance</h5>
+                    <p>
+                        The application uses a base layout template (<code>layout.ejs</code>) that defines 
+                        the overall structure, including header, navigation, and footer. Other pages extend 
+                        this layout and only need to provide their specific content.
+                    </p>
+                    
+                    <h5>2. Partials and Components</h5>
+                    <p>
+                        Reusable template fragments are stored in the <code>partials/</code> directory. 
+                        These can be included in multiple templates to avoid code duplication.
+                    </p>
+                    
+                    <h5>3. Dynamic Data Binding</h5>
+                    <p>
+                        Templates receive data from the server and render it dynamically. This allows 
+                        the same template to display different content based on the provided data.
+                    </p>
+                    
+                    <h5>4. Conditional Rendering</h5>
+                    <p>
+                        Templates can conditionally show or hide content based on data properties, 
+                        such as user roles, product availability, or search results.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Sidebar -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-code me-2"></i>Quick Stats</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <h4 class="text-primary">3</h4>
+                            <small class="text-muted">Users</small>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-success">3</h4>
+                            <small class="text-muted">Products</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-link me-2"></i>Quick Links</h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <a href="/users" class="list-group-item list-group-item-action">
+                            <i class="fas fa-users me-2"></i>User Directory
+                        </a>
+                        <a href="/products" class="list-group-item list-group-item-action">
+                            <i class="fas fa-shopping-cart me-2"></i>Product Catalog
+                        </a>
+                        <a href="/api/demo" class="list-group-item list-group-item-action">
+                            <i class="fas fa-code me-2"></i>API Demo
+                        </a>
+                        <a href="/health" class="list-group-item list-group-item-action">
+                            <i class="fas fa-heartbeat me-2"></i>Health Check
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-book me-2"></i>Learn More</h5>
+                </div>
+                <div class="card-body">
+                    <p class="small">
+                        This demo is part of the "Mastering Template Generation" book, which covers 
+                        template engines, web development, document generation, and AI-assisted templating.
+                    </p>
+                    <div class="d-grid">
+                        <a href="/" class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-home me-1"></i>Back to Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+` }) %>

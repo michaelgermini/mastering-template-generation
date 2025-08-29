@@ -1,0 +1,35 @@
+import {{name}} from './{{name}}';
+
+describe('{{name}}', () => {
+  beforeEach(() => {
+    // Mock fetch
+    global.fetch = jest.fn();
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  
+  describe('{{endpoints}}', () => {
+    it('should make successful API call', async () => {
+      const mockResponse = { data: 'test' };
+      global.fetch.mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockResponse
+      });
+
+      const result = await {{name}}.{{endpoints}}();
+      expect(result).toEqual(mockResponse);
+    });
+
+    it('should handle API errors', async () => {
+      global.fetch.mockResolvedValueOnce({
+        ok: false,
+        status: 500
+      });
+
+      await expect({{name}}.{{endpoints}}()).rejects.toThrow();
+    });
+  });
+});

@@ -1,0 +1,29 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+{{#if withStyles}}import './{{componentName}}.css';{{/if}}
+
+const {{componentName}} = ({ {{props}} }) => {
+  return (
+    <div className="{{componentNameLowerCase}}">
+      {{#each props}}
+      <div className="{{componentNameLowerCase}}__{{this}}">
+        { {{this}} }
+      </div>
+      {{/each}}
+    </div>
+  );
+};
+
+{{componentName}}.propTypes = {
+  {{#each props}}
+  {{this}}: PropTypes.{{getPropType this}},
+  {{/each}}
+};
+
+{{componentName}}.defaultProps = {
+  {{#each props}}
+  {{this}}: {{getDefaultValue this}},
+  {{/each}}
+};
+
+export default {{componentName}};

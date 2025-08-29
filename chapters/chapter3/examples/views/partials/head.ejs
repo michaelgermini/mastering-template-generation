@@ -1,0 +1,25 @@
+<!-- Additional meta tags and page-specific head content -->
+<meta name="description" content="Template Generation Demo - A comprehensive guide to web templating">
+<meta name="keywords" content="templates, web development, EJS, Express.js, templating">
+<meta name="author" content="Template Generation Book">
+
+<!-- Open Graph tags -->
+<meta property="og:title" content="<%= title %> - Template Generation Demo">
+<meta property="og:description" content="A comprehensive demonstration of template engines and web development techniques">
+<meta property="og:type" content="website">
+<meta property="og:url" content="<%= typeof url !== 'undefined' ? url : 'http://localhost:3000' %>">
+
+<!-- Twitter Card tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="<%= title %> - Template Generation Demo">
+<meta name="twitter:description" content="A comprehensive demonstration of template engines and web development techniques">
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Page-specific styles -->
+<% if (typeof pageStyles !== 'undefined') { %>
+    <style>
+        <%- pageStyles %>
+    </style>
+<% } %>

@@ -1,0 +1,99 @@
+module.exports = function(plop) {
+  // Component generator
+  plop.setGenerator('component', {
+    description: 'Create a React component',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Component name:',
+        validate: (input) => {
+          if (!/^[A-Z][a-zA-Z0-9]*$/.test(input)) {
+            return 'Component name must be PascalCase';
+          }
+          return true;
+        }
+      },
+      {
+        type: 'input',
+        name: 'props',
+        message: 'Component props (comma-separated):',
+        default: 'name, value',
+        filter: (input) => input.split(',').map(p => p.trim())
+      },
+      {
+        type: 'confirm',
+        name: 'withStyles',
+        message: 'Include CSS file?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'withTests',
+        message: 'Include test file?',
+        default: true
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/components/{{name}}/{{name}}.jsx',
+        templateFile: 'plop-templates/component.hbs'
+      },
+      {
+        type: 'add',
+        path: 'src/components/{{name}}/index.js',
+        templateFile: 'plop-templates/component-index.hbs'
+      },
+      {
+        type: 'add',
+        path: 'src/components/{{name}}/{{name}}.css',
+        templateFile: 'plop-templates/component-styles.hbs',
+        skipIfExists: true
+      },
+      {
+        type: 'add',
+        path: 'src/components/{{name}}/{{name}}.test.js',
+        templateFile: 'plop-templates/component-test.hbs',
+        skipIfExists: true
+      }
+    ]
+  });
+
+  // Service generator
+  plop.setGenerator('service', {
+    description: 'Create a service',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Service name:',
+        validate: (input) => {
+          if (!/^[A-Z][a-zA-Z0-9]*$/.test(input)) {
+            return 'Service name must be PascalCase';
+          }
+          return true;
+        }
+      },
+      {
+        type: 'list',
+        name: 'type',
+        message: 'Service type:',
+        choices: ['api', 'local', 'websocket'],
+        default: 'api'
+      }
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/services/{{name}}.js',
+        templateFile: 'plop-templates/service.hbs'
+      },
+      {
+        type: 'add',
+        path: 'src/services/{{name}}.test.js',
+        templateFile: 'plop-templates/service-test.hbs'
+      }
+    ]
+  });
+};

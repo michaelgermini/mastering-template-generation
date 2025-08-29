@@ -1,0 +1,20 @@
+<!-- Page-specific scripts -->
+<% if (typeof pageScripts !== 'undefined') { %>
+    <script>
+        <%- pageScripts %>
+    </script>
+<% } %>
+
+<!-- Analytics and tracking scripts can go here -->
+<script>
+    // Example analytics code
+    console.log('Page loaded:', '<%= title %>');
+    
+    // Track page views (example)
+    if (typeof gtag !== 'undefined') {
+        gtag('config', 'GA_MEASUREMENT_ID', {
+            page_title: '<%= title %>',
+            page_location: window.location.href
+        });
+    }
+</script>

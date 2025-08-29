@@ -1,0 +1,30 @@
+class {{serviceName}} {
+  constructor() {
+    this.baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000/api';
+  }
+
+  {{#each endpoints}}
+  async {{this}}({{getParams this}}) {
+    try {
+      const response = await fetch(`${this.baseUrl}/{{getEndpoint this}}`, {
+        method: '{{getMethod this}}',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        {{#if hasBody this}}body: JSON.stringify(data),{{/if}}
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('{{serviceName}}.{{this}} error:', error);
+      throw error;
+    }
+  }
+  {{/each}}
+}
+
+export default new {{serviceName}}();

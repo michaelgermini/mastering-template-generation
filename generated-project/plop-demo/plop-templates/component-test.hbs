@@ -1,0 +1,24 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import {{componentName}} from './{{componentName}}';
+
+describe('{{componentName}}', () => {
+  const defaultProps = {
+    {{#each props}}
+    {{this}}: {{getTestValue this}},
+    {{/each}}
+  };
+
+  it('renders without crashing', () => {
+    render(<{{componentName}} {...defaultProps} />);
+    expect(screen.getByRole('generic')).toBeInTheDocument();
+  });
+
+  {{#each props}}
+  it('displays {{this}} prop', () => {
+    render(<{{componentName}} {...defaultProps} />);
+    expect(screen.getByText(defaultProps.{{this}})).toBeInTheDocument();
+  });
+  {{/each}}
+});
